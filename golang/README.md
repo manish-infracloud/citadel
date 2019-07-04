@@ -117,7 +117,11 @@
 - Exec'ing Processes
 - Signals
 - Exit
-
+#### Assignments
+- [ ] [https://gophercises.com/exercises/urlshort](https://gophercises.com/exercises/urlshort)
+- [ ] [https://gophercises.com/exercises/phone](https://gophercises.com/exercises/phone)
+- [ ] [https://gophercises.com/exercises/secret](https://gophercises.com/exercises/secret)
+ 
 ## Developing CLI
 
 ## Microservices
