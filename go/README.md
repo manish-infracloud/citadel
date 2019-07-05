@@ -1,7 +1,7 @@
-# Golang
+# Go
 
 ### Contents
-- [Golanng](#golang)
+- [Go](#go)
     - [Setup](#setup)
     - [Basics](#basics)
     - [Functions](#functions)
@@ -19,8 +19,8 @@
 
 
 ## Setup
-- Setup Golang https://golang.org/dl/
-- VSCode Setup https://code.visualstudio.com/ 
+- Setup Go https://golang.org/dl/
+- VSCode Setup https://code.visualstudio.com/docs/languages/go
 
 ## Basics
 - Hello World
