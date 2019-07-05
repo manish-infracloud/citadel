@@ -34,6 +34,9 @@
 - Maps
 - Range
 
+#### Assignnments
+- [ ] Go through [gobyexample.com](gobyexample.com). Same applies for rest of sections below.
+
 ## Functions
 - Functions
 - Named return 
@@ -45,8 +48,11 @@
 - Structs
 - Interfaces
 - Methods
+- Embedded Types
 
 ## Errors
+#### Assignments
+- [ ] Findout type of error in Go and how it is defined?
 
 ## Goroutines & Channels
 - Goroutines
@@ -129,11 +135,20 @@
 - Routers
 - Controllers & Views
 - Templates
+- [Explore Mux](https://github.com/gorilla/mux)
+- [Explore Gin](https://github.com/gin-gonic/gin)
+#### Assignments
+- [ ] [https://dzone.com/articles/create-versatile-microservices-in-golang-part-1?fromrel=true](https://dzone.com/articles/create-versatile-microservices-in-golang-part-1?fromrel=true)
 
 ## Unit testing
+- Explore packages
+    - [testing](https://golang.org/pkg/testing/)
+    - [Ginkgo](https://onsi.github.io/ginkgo/)
+    - [Gomega]( https://onsi.github.io/gomega/)
+#### Assignments
+- [ ] Write unit tests and functional/integration tests for microservices application you wrote.
 
 ## References
 - [https://gobyexample.com/](https://gobyexample.com/)
 - [http://www.golangbootcamp.com/book/exercises](http://www.golangbootcamp.com/book/exercises)
-- [https://dzone.com/articles/create-versatile-microservices-in-golang-part-1?fromrel=true](https://dzone.com/articles/create-versatile-microservices-in-golang-part-1?fromrel=true)
 - [https://scotch.io/bar-talk/build-a-realtime-chat-server-with-go-and-websockets](https://scotch.io/bar-talk/build-a-realtime-chat-server-with-go-and-websockets)
