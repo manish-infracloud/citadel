@@ -21,6 +21,7 @@
 ## Setup
 - Setup Go https://golang.org/dl/
 - VSCode Setup https://code.visualstudio.com/docs/languages/go
+- Signup for https://gophercises.com/
 
 ## Basics
 - Hello World
