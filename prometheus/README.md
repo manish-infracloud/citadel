@@ -10,9 +10,10 @@
   - [Prometheus operator](#operator)
 - [Reference links](#reference-links)
 
+
 ## Prometheus
 
-- Obserability & Monitoring
+- Observability & Monitoring
 - Metrics
 - Timeseries Databases
 - Configuring Prometheus
@@ -22,7 +23,7 @@
 
 ### Assignments
 
-- [ ] Download and run Prometheus locally or in a docker container
+- [ ] Download and run Prometheus locally or in a Docker container
 
 ## PromQL
 
@@ -57,7 +58,7 @@
 
 ### Assignments
 
-- [ ] Write a golang program to expose prometheus metrics using the golang client
+- [ ] Write a Go program to expose Prometheus metrics using the Go client
 
 ## Grafana
 
@@ -70,9 +71,9 @@
 
 ### Assignments
 
-- [ ] Deploy grafana and add a prometheus instance as a datasource
-- [ ] Create a slack webhook and add it as a notification channel in grafana
-- [ ] Provision a datasource on grafana startup
+- [ ] Deploy Grafana and add a Prometheus instance as a datasource
+- [ ] Create a Slack webhook and add it as a notification channel in Grafana
+- [ ] Provision a datasource on Grafana startup
 
 ## Grafana Dashboards
 
