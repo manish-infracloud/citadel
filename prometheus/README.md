@@ -7,7 +7,9 @@
   - [Prometheus SDK](#prometheus-SDK)
   - [Grafana](#grafana)
   - [Grafana Dashboards](#grafana-dashboards)
-  - [Prometheus Operator](#operator)
+  - [Prometheus operator](#operator)
+- [Reference links](#reference-links)
+
 
 ## Prometheus
 
@@ -39,7 +41,7 @@
 
 ### Assignments
 
-- [ ] Install Prometheus Operator using Helm & access Prometheus and Grafana using `kubectl port-forward`.
+- [ ] Install Prometheus using Helm & access Prometheus using kubectl port-forward.
 - [ ] Write a query to find cpu usage
 - [ ] Write a query to find memory usage
 
@@ -87,3 +89,10 @@
 - [ ] Create a dashboard with multiple panels showing memory, cpu usage
 - [ ] Export a dashboard as json and import it into another Grafana instance
 - [ ] Provision a dashboard on Grafana startup
+
+## Reference Links
+- [Prometheus docs](https://prometheus.io/docs/introduction/overview/)
+- [Grafana docs](https://grafana.com/docs/)
+- [Understanding CPU usage](https://www.robustperception.io/understanding-machine-cpu-usage)
+- [Infracloud blog - Monitoring Kubernetes with Prometheus operator](https://www.infracloud.io/monitoring-kubernetes-prometheus/) [(git repo)](https://github.com/kanuahs/prometheus-operator-demo)
+- [Using the Prometheus Operator Helm chart with a values.yaml override](https://github.com/kanuahs/sock-shop-prometheus-operator)
