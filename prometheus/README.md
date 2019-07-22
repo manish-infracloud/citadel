@@ -41,7 +41,7 @@
 
 ### Assignments
 
-- [ ] Install prometheus using helm & access prometheus using kubectl port-forward.
+- [ ] Install Prometheus using Helm & access Prometheus using kubectl port-forward.
 - [ ] Write a query to find cpu usage
 - [ ] Write a query to find memory usage
 
@@ -87,8 +87,8 @@
 ### Assignments
 
 - [ ] Create a dashboard with multiple panels showing memory, cpu usage
-- [ ] Export a dashboard as json and import it into another grafana instance
-- [ ] Provision a dashboard on grafana startup
+- [ ] Export a dashboard as json and import it into another Grafana instance
+- [ ] Provision a dashboard on Grafana startup
 
 ## Reference Links
 - [Prometheus docs](https://prometheus.io/docs/introduction/overview/)
