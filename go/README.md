@@ -36,7 +36,7 @@
 - Range
 
 #### Assignnments
-- [ ] Go through [gobyexample.com](gobyexample.com). Same applies for rest of sections below.
+- [ ] Go through [gobyexample.com](https://gobyexample.com). Same applies for rest of sections below.
 
 ## Functions
 - Functions
