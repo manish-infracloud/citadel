@@ -15,7 +15,7 @@
     - [Developing CLI](#developing-cli)
     - [Microservices](#microservices)
     - [Unit testing](#unit-testing)
-    - [Tooling)(#tooling)
+    - [Tooling](#tooling)
     - [Internals](#internals)
     - [References](#references)
 
