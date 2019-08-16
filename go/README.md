@@ -15,6 +15,8 @@
     - [Developing CLI](#developing-cli)
     - [Microservices](#microservices)
     - [Unit testing](#unit-testing)
+    - [Tooling](#tooling)
+    - [Internals](#internals)
     - [References](#references)
 
 
@@ -148,6 +150,13 @@
     - [Gomega]( https://onsi.github.io/gomega/)
 #### Assignments
 - [ ] Write unit tests and functional/integration tests for microservices application you wrote.
+
+## Tooling
+- [Go Tooling in Action](https://www.youtube.com/watch?v=uBjoTxosSys)
+
+## Internals
+- [Scheduler Saga](https://www.youtube.com/watch?v=YHRO5WQGh0k)
+- [Understanding Channels](https://www.youtube.com/watch?v=KBZlN0izeiY)
 
 ## References
 - [https://gobyexample.com/](https://gobyexample.com/)
