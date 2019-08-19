@@ -157,6 +157,7 @@
 ## Internals
 - [Scheduler Saga](https://www.youtube.com/watch?v=YHRO5WQGh0k)
 - [Understanding Channels](https://www.youtube.com/watch?v=KBZlN0izeiY)
+- [Locks](https://www.infoq.com/presentations/go-locks/)
 
 ## References
 - [https://gobyexample.com/](https://gobyexample.com/)
