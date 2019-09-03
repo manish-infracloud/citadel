@@ -19,8 +19,6 @@ func inTimeSpan(start, end, check time.Time) bool {
 	return check.After(start) && check.Before(end)
 }
 
-//sp := &build
-
 func dup_count(list []string) map[string]int {
 
 	duplicate_frequency := make(map[string]int)
@@ -39,6 +37,13 @@ func dup_count(list []string) map[string]int {
 	return duplicate_frequency
 }
 
+func getHome() string {
+	if h := os.Getenv("HOME"); h != "" {
+		return h
+	}
+	return ""
+}
+
 func main() {
 
 	start, _ := time.Parse(time.RFC3339, "2018-10-30T02:47:31-04:00")
@@ -46,12 +51,10 @@ func main() {
 	count := 0
 	count2 := 0
 	var tcount []string
-	//m := make(map[string]int)
-	//out, _ := time.Parse(time.RFC822, "01 Jan 17 10:00 UTC")
 	var UsrID []string
-
 	var Users []string
 
+	//Read from CSV file
 	filePath := filepath.Join(getHome(), "Downloads", "data.csv")
 	csvfile, err := os.Open(filePath)
 	if err != nil {
@@ -97,17 +100,14 @@ func main() {
 		}
 		UsrID = append(UsrID, data.UserID)
 	}
-	fmt.Println(UsrID)
+
+	fmt.Printf("Nubmer of builds beetween the range date from %v to %v are %v\n", start, end, count)
+
 	dup_map := dup_count(UsrID)
 
-	//fmt.Println(dup_map)
-
-	for k, v := range dup_map {
-		fmt.Printf("UserID : %s , Count : %d\n", k, v)
-	}
-	fmt.Println(count)
-	fmt.Println("New count2 is ", count2)
-	fmt.Println("Total count is:", len(tcount))
+	//	for k, v := range dup_map {
+	//		fmt.Printf("UserID : %s , Count : %d\n", k, v)
+	//	}
 	type kv struct {
 		Key   string
 		Value int
@@ -127,13 +127,11 @@ func main() {
 		Users = append(Users, kv.Key)
 
 	}
-	//fmt.Printf("%s\n", Users)
 	l := Users[:5]
 	fmt.Printf("Top 5 users are: \n%s\n", l)
+	//fmt.Println("Number of successful builds are ", count2)
+	//fmt.Println("Total count is:", len(tcount))
+	sRate := (float64(count2) / float64(len(tcount))) * 100
+	fmt.Printf("Success Rate is: %v%%\n", sRate)
 }
-func getHome() string {
-	if h := os.Getenv("HOME"); h != "" {
-		return h
-	}
-	return ""
-}
+
