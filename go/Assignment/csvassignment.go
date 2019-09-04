@@ -19,22 +19,22 @@ func inTimeSpan(start, end, check time.Time) bool {
 	return check.After(start) && check.Before(end)
 }
 
-func dup_count(list []string) map[string]int {
+func repeatCount(list []string) map[string]int {
 
-	duplicate_frequency := make(map[string]int)
+	RepeatFrequency := make(map[string]int)
 
 	for _, item := range list {
-		// check if the item/element exist in the duplicate_frequency map
+		// check if the item/element exist in the RepeatFrequency map
 
-		_, exist := duplicate_frequency[item]
+		_, exist := RepeatFrequency[item]
 
 		if exist {
-			duplicate_frequency[item] += 1 // increase counter by 1 if already in the map
+			RepeatFrequency[item]++ // increase counter by 1 if already in the map
 		} else {
-			duplicate_frequency[item] = 1 // else start counting from 1
+			RepeatFrequency[item] = 1 // else start counting from 1
 		}
 	}
-	return duplicate_frequency
+	return RepeatFrequency
 }
 
 func getHome() string {
@@ -52,7 +52,6 @@ func main() {
 	count2 := 0
 	var tcount []string
 	var UsrID []string
-	var Users []string
 
 	//Read from CSV file
 	filePath := filepath.Join(getHome(), "Downloads", "data.csv")
@@ -103,35 +102,34 @@ func main() {
 
 	fmt.Printf("Nubmer of builds beetween the range date from %v to %v are %v\n", start, end, count)
 
-	dup_map := dup_count(UsrID)
+	RepeatMap := repeatCount(UsrID)
 
-	//	for k, v := range dup_map {
+	//	for k, v := range RepeatMap {
 	//		fmt.Printf("UserID : %s , Count : %d\n", k, v)
 	//	}
+	//Turning the map into this structure
 	type kv struct {
 		Key   string
 		Value int
 	}
 
 	var ss []kv
-	for k, v := range dup_map {
+	for k, v := range RepeatMap {
 		ss = append(ss, kv{k, v})
-	}
 
+	}
+	//Sorting the key values from repeat map in descending order
 	sort.Slice(ss, func(i, j int) bool {
 		return ss[i].Value > ss[j].Value
 	})
 
-	for _, kv := range ss {
-		//fmt.Printf("%s, %d\n", kv.Key, kv.Value)
-		Users = append(Users, kv.Key)
+	for _, kv := range ss[:5] {
+		fmt.Printf("UserId : %s, Count : %d\n", kv.Key, kv.Value)
 
 	}
-	l := Users[:5]
-	fmt.Printf("Top 5 users are: \n%s\n", l)
+
 	//fmt.Println("Number of successful builds are ", count2)
 	//fmt.Println("Total count is:", len(tcount))
 	sRate := (float64(count2) / float64(len(tcount))) * 100
 	fmt.Printf("Success Rate is: %v%%\n", sRate)
 }
-
