@@ -8,25 +8,26 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strconv"
 	"time"
 )
 
 type build struct {
-	UniqueBuildID,
-	UserID,
-	BuildReqReceived,
-	BuildExecutionStart,
-	BuildExecutionEnd,
-	BuildDeleteIndicator,
-	BuildExitCode,
-	BuiltImageSize string
+	UniqueBuildID        string
+	UserID               string
+	BuildReqReceived     time.Time
+	BuildExecutionStart  time.Time
+	BuildExecutionEnd    time.Time
+	BuildDeleteIndicator bool
+	BuildExitCode        int
+	BuildImageSize       int
 }
 
 func inTimeSpan(start, end, check time.Time) bool {
 	return check.After(start) && check.Before(end)
 }
 
-func repeatCount(list []string) map[string]int {
+func repeatitionMap(list []string) map[string]int {
 
 	RepeatFrequency := make(map[string]int)
 
@@ -58,8 +59,8 @@ func main() {
 	BuildCount := 0
 	ExitCodeCount := 0
 	IndexNum := 1
-	var TotalCount []string
-	var UsrID []string
+	var TotalCount []int
+	var userIDList []string
 	//Read from CSV file
 	filePath := filepath.Join(getHome(), "Downloads", "data.csv")
 	csvfile, err := os.Open(filePath)
@@ -82,34 +83,41 @@ func main() {
 			fmt.Println(err)
 			os.Exit(1)
 		}
+		buildReceivedTime, _ := time.Parse(time.RFC3339, record[2])
+		buildStartTime, _ := time.Parse(time.RFC3339, record[3])
+		buildEndTime, _ := time.Parse(time.RFC3339, record[4])
+		buildDeleteStatus, _ := strconv.ParseBool(record[5])
+		buildExitStatus, _ := strconv.Atoi(record[6])
+		buildImageSize, _ := strconv.Atoi(record[7])
 
-		var data = build{
+		data := build{
 			UniqueBuildID:        record[0],
 			UserID:               record[1],
-			BuildReqReceived:     record[2],
-			BuildExecutionStart:  record[3],
-			BuildExecutionEnd:    record[4],
-			BuildDeleteIndicator: record[5],
-			BuildExitCode:        record[6],
-			BuiltImageSize:       record[7],
+			BuildReqReceived:     buildReceivedTime,
+			BuildExecutionStart:  buildStartTime,
+			BuildExecutionEnd:    buildEndTime,
+			BuildDeleteIndicator: buildDeleteStatus,
+			BuildExitCode:        buildExitStatus,
+			BuildImageSize:       buildImageSize,
 		}
 		// Check for the build exit codes, if 0 increment the counter
-		if data.BuildExitCode == "0" {
+		if data.BuildExitCode == 0 {
 			ExitCodeCount++
 		}
 		TotalCount = append(TotalCount, data.BuildExitCode)
 
-		in, _ := time.Parse(time.RFC3339, data.BuildExecutionEnd)
+		in := data.BuildExecutionEnd
 		if inTimeSpan(start, end, in) {
 			BuildCount++
 			//	fmt.Println(in, "is between", start, "and", end, ".")
 		}
-		UsrID = append(UsrID, data.UserID)
+		userIDList = append(userIDList, data.UserID)
+
 	}
 
 	fmt.Printf("Nubmer of builds beetween the range date from %v to %v are: %d\n", start, end, BuildCount)
 
-	RepeatMap := repeatCount(UsrID)
+	RepeatMap := repeatitionMap(userIDList)
 
 	//	for k, v := range RepeatMap {
 	//		fmt.Printf("UserID : %s , Count : %d\n", k, v)
